@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.HomeController" stylesheets="@../../css/home.css" styleClass="home-background">
+
+    <top>
+        <fx:include fx:id="navLoader" source="../NavBar/navbarHome.fxml"/>
+    </top>
+
+    <center>
+        <HBox alignment="TOP_CENTER">
+            <HBox prefHeight="50">
+                <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
+                    <ImageView fitHeight="23" fitWidth="23">
+                        <image>
+                            <Image url="@../../images/searchBar/buscar.png" />
+                        </image>
+                    </ImageView>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </StackPane>
+                <TextField fx:id="tfBuscar" onKeyPressed="#onEnterBuscar" prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
+
+                <Button fx:id="btnFiltrar" maxHeight="42" styleClass="searchbarIcono2">
+                    <graphic>
+                        <ImageView fitHeight="25" fitWidth="25">
+                            <image>
+                                <Image url="@../../images/searchBar/filtro.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <HBox.margin>
+                    <Insets top="15" />
+                </HBox.margin>
+            </HBox>
+        </HBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane minHeight="400.0" minWidth="600.0" styleClass="login-background" stylesheets="@../../css/login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="mx.edu.utez.proyectorecetario.controller.LoginController">
+    <VBox alignment="TOP_CENTER" maxHeight="600" maxWidth="600" spacing="20" styleClass="login-card">
+        <HBox alignment="TOP_LEFT">
+            <Button onAction="#onScreenLandingPage" styleClass="btn-back">
+                <graphic>
+                    <ImageView fitHeight="45" fitWidth="45">
+                        <image>
+                            <Image url="@../../images/backflecha.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="35" top="30" />
+                </HBox.margin>
+            </Button>
+            <ImageView fitHeight="85" fitWidth="190">
+                <image>
+                    <Image url="@../../images/logorecetario.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="120" top="30" />
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+
+        <VBox>
+            <VBox alignment="CENTER">
+                <Label text="INICIAR SESIÓN" styleClass="tituloLogin">
+                    <VBox.margin>
+                        <Insets top="20" />
+                    </VBox.margin>
+                </Label>
+            </VBox>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Usuario" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="20" />
+                </VBox.margin>
+            </TextFlow>
+
+            <TextField fx:id="txtNombreUsuario" prefHeight="30" promptText="Ej: Usuario145" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </TextField>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Contraseña" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="25" />
+                </VBox.margin>
+            </TextFlow>
+
+            <PasswordField fx:id="txtContrasena" prefHeight="30" promptText="Ej: iLovemangools123" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </PasswordField>
+
+            <Button onAction="#onScreenForgotPassword" prefHeight="28" prefWidth="1000" styleClass="btn-ForgotPass" text="¿Olvidaste tu contraseña?">
+                <VBox.margin>
+                    <Insets left="300" right="43" top="10" />
+                </VBox.margin>
+            </Button>
+
+            <Button onAction="#onLogin" prefHeight="28" prefWidth="1000" styleClass="btn-ingresar" text="Ingresar">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="45" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </VBox>
+</StackPane>

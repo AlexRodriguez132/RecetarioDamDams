@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.skin.ProgressIndicatorSkin.IndeterminateSpinner.IndicatorPaths?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.CrearRecetasController" stylesheets="@../../../css/crearrecetas.css">
+    <top>
+        <HBox styleClass="top-color" alignment="TOP_LEFT" prefHeight="50" >
+            <Button onAction="#onScreenHome" styleClass="btn-back">
+                <graphic>
+                    <ImageView fitHeight="45" fitWidth="45">
+                        <image>
+                            <Image url="@../../../images/recetas/backflechablanco.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="35" top="20" />
+                </HBox.margin>
+            </Button>
+            <Text text="CREAR NUEVA RECETA" styleClass="titulo-crearreceta">
+                <HBox.margin>
+                    <Insets top="25" left="50" bottom="20"/>
+                </HBox.margin>
+            </Text>
+        </HBox>
+    </top>
+    <center>
+    <ScrollPane  fitToWidth="true" fitToHeight="true" stylesheets="@../../../css/crearrecetas.css">
+        <VBox spacing="20" styleClass="crearrecetas-background" minWidth="500">
+
+
+            <VBox styleClass="crearrecetas-card" minWidth="500">
+                <VBox alignment="TOP_LEFT" >
+
+                    <Label text="General" styleClass="titulo-crearreceta">
+                        <VBox.margin>
+                            <Insets left="25" top="20"/>
+                        </VBox.margin>
+                    </Label>
+                    <Label text="Completa todos los campos obligatorios. Puede editar la receta en cualquier momento." styleClass="texto-crearreceta">
+                        <VBox.margin>
+                            <Insets  left="25" top="5"/>
+                        </VBox.margin>
+                    </Label>
+
+                    <TextFlow>
+                        <Text text=" Título" styleClass="text-label"/>
+                        <Text text="*" styleClass="asterisco-label"/>
+                        <Text text=":" styleClass="text-label"/>
+                        <VBox.margin>
+                            <Insets left="25" top="20" />
+                        </VBox.margin>
+                    </TextFlow>
+
+                    <TextField fx:id="titulo" promptText="Ej: Pechuga de pavo rellena" styleClass="input">
+                        <VBox.margin>
+                            <Insets left="25" top="5" right="25"/>
+                        </VBox.margin>
+                    </TextField>
+
+                    <HBox alignment="TOP_CENTER">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/reloj.png"/>
+                            </image>
+                            <HBox.margin>
+                                <Insets top="30" bottom="25"/>
+                            </HBox.margin>
+                        </ImageView>
+                        <TextFlow>
+                            <Text text=" Duración" styleClass="text-label"/>
+                            <Text text="*" styleClass="asterisco-label"/>
+                            <Text text=":" styleClass="text-label"/>
+                            <HBox.margin>
+                                <Insets left="10" top="25" bottom="25"/>
+                            </HBox.margin>
+                        </TextFlow>
+                        <ComboBox fx:id="duracion" promptText="Selecciona la duración" styleClass="combo-box">
+                            <HBox.margin>
+                                <Insets left="10" top="20" bottom="25"/>
+                            </HBox.margin>
+                        </ComboBox>
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/grafica.png"/>
+                            </image>
+                            <HBox.margin>
+                                <Insets left="25" top="30" bottom="25"/>
+                            </HBox.margin>
+                        </ImageView>
+                        <TextFlow>
+                            <Text text=" Dificultad" styleClass="text-label"/>
+                            <Text text="*" styleClass="asterisco-label"/>
+                            <Text text=":" styleClass="text-label"/>
+                            <HBox.margin>
+                                <Insets left="10" top="25" bottom="25" />
+                            </HBox.margin>
+                        </TextFlow>
+                        <ComboBox fx:id="dificultad" promptText="Selecciona la dificultad" styleClass="combo-box">
+                            <HBox.margin>
+                                <Insets left="10" top="20" bottom="25"/>
+                            </HBox.margin>
+                        </ComboBox>
+                    </HBox>
+                </VBox>
+                <VBox.margin>
+                    <Insets left="140" right="140" top="20"/>
+                </VBox.margin>
+            </VBox>
+
+
+
+
+            <VBox alignment="TOP_LEFT" styleClass="crearrecetas-card" minWidth="500">
+
+                <Label text="Contenido" styleClass="titulo-crearreceta">
+                    <VBox.margin>
+                        <Insets left="25" top="20"/>
+                    </VBox.margin>
+                </Label>
+                <Label text="El contenido real de la receta." styleClass="texto-crearreceta">
+                    <VBox.margin>
+                        <Insets  left="25" top="5"/>
+                    </VBox.margin>
+                </Label>
+
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button onAction="#seleccionarImagen" styleClass="btn-imagen">
+                        <graphic>
+                            <HBox alignment="CENTER_LEFT" spacing="10">
+                                <ImageView fitHeight="20" fitWidth="20">
+                                    <image>
+                                        <Image url="@../../../images/recetas/camara.png"/>
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets right="5"/>
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label text="Seleccionar" styleClass="btn-imagen"/>
+                            </HBox>
+                        </graphic>
+                        <HBox.margin>
+                            <Insets left="25" top="20"/>
+                        </HBox.margin>
+                    </Button>
+                    <Label fx:id="imagenNombre" text="Sin imagen" styleClass="texto-imagen">
+                        <HBox.margin>
+                            <Insets left="10" top="20"/>
+                        </HBox.margin>
+                    </Label>
+                </HBox>
+
+
+                <Text text=" Categorias:" styleClass="text-label">
+                    <VBox.margin>
+                        <Insets left="25" top="20"/>
+                    </VBox.margin>
+                </Text>
+
+                <FlowPane fx:id="categoriasPane" hgap="25" vgap="15">
+                    <VBox.margin>
+                        <Insets left="25" top="20" right="25"/>
+                    </VBox.margin>
+                </FlowPane>
+
+                <Text text=" Descripción:" styleClass="text-label">
+                    <VBox.margin>
+                        <Insets left="25" top="20"/>
+                    </VBox.margin>
+                </Text>
+
+                <TextArea fx:id="descripcion" promptText="Descripción breve" prefRowCount="6" styleClass="text-area">
+                    <VBox.margin>
+                        <Insets left="25" top="20" right="25"/>
+                    </VBox.margin>
+                </TextArea>
+
+                <Text text=" Ingredientes:" styleClass="text-label">
+                    <VBox.margin>
+                        <Insets left="25" top="20"/>
+                    </VBox.margin>
+                </Text>
+
+                <TextArea fx:id="ingredientes" promptText="Escribe los ingredientes" styleClass="text-area">
+                    <VBox.margin>
+                        <Insets left="25" top="20" right="25"/>
+                    </VBox.margin>
+                </TextArea>
+
+                <Text text=" Pasos:" styleClass="text-label">
+                    <VBox.margin>
+                        <Insets left="25" top="20"/>
+                    </VBox.margin>
+                </Text>
+
+                <TextArea fx:id="pasos" promptText="Escribe los ingredientes" prefRowCount="20" styleClass="text-area">
+                    <VBox.margin>
+                        <Insets left="25" top="20" right="25" bottom="20"/>
+                    </VBox.margin>
+                </TextArea>
+
+                <VBox.margin>
+                    <Insets left="140" right="140"/>
+                </VBox.margin>
+            </VBox>
+            <HBox alignment="TOP_RIGHT">
+                <Button text=" Guardar " onAction="#guardarReceta" styleClass="btn-guardar">
+                </Button>
+                <VBox.margin>
+                    <Insets right="140" bottom="30"/>
+                </VBox.margin>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+    </center>
+</BorderPane>
+

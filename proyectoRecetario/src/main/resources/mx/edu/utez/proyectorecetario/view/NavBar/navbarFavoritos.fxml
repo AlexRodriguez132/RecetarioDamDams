@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<HBox prefHeight="80" spacing="15" styleClass="navbar" stylesheets="@../../css/navbar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.NavBarController" alignment="TOP_CENTER">
+
+    <!-- Logo-->
+    <ImageView fitHeight="60" fitWidth="150">
+        <image>
+            <Image url="@../../images/navBar/logorecetarioblanco.png"/>
+        </image>
+        <HBox.margin>
+            <Insets left="100" top="6" right="100"/>
+        </HBox.margin>
+    </ImageView>
+
+    <!-- Home -->
+    <Button fx:id="btnHome" styleClass="btnHome" onAction="#onScreenHome">
+        <graphic>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="28" fitWidth="28">
+                    <image>
+                        <Image url="@../../images/navBar/iconoHome.png"/>
+                    </image>
+                    <HBox.margin>
+                        <Insets right="15"/>
+                    </HBox.margin>
+                </ImageView>
+                <Label text="Home" styleClass="btnHome"/>
+            </HBox>
+        </graphic>
+        <HBox.margin>
+            <Insets top="15" right="30"/>
+        </HBox.margin>
+    </Button>
+
+    <!-- Mis recetas -->
+    <Button fx:id="btnRecetas" styleClass="btnRecetas" onAction="#onScreenRecetas">
+        <graphic>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="32" fitWidth="32">
+                    <image>
+                        <Image url="@../../images/navBar/iconoMisRecetas.png"/>
+                    </image>
+                    <HBox.margin>
+                        <Insets right="15"/>
+                    </HBox.margin>
+                </ImageView>
+                <Label text="Mis Recetas" styleClass="btnRecetas"/>
+            </HBox>
+        </graphic>
+        <HBox.margin>
+            <Insets top="15" right="30"/>
+        </HBox.margin>
+    </Button>
+
+    <!-- Favoritos -->
+    <Button fx:id="btnFavoritos" styleClass="btnFavoritos-active">
+        <graphic>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <ImageView fitHeight="30" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/navBar/iconoFavoritos.png"/>
+                    </image>
+                    <HBox.margin>
+                        <Insets right="15"/>
+                    </HBox.margin>
+                </ImageView>
+                <Label text="Favoritos" styleClass="btnFavoritos"/>
+            </HBox>
+        </graphic>
+        <HBox.margin>
+            <Insets top="13" right="180"/>
+        </HBox.margin>
+    </Button>
+
+    <!-- Perfil -->
+    <ImageView fitHeight="50" fitWidth="50">
+        <image>
+            <Image url="@../../images/navBar/iconoPerfil.png"/>
+        </image>
+        <HBox.margin>
+            <Insets top="15" right="100"/>
+        </HBox.margin>
+    </ImageView>
+</HBox>
+

@@ -1,0 +1,55 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.titulo-parteuno{
+    -fx-font-size: 58px;
+    -fx-font-family: Inter;
+    -fx-label-padding: 0;
+}
+.titulo-partedos{
+    -fx-font-size: 130px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+.subtitulo{
+    -fx-font-size: 24px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+    -fx-text-fill: #F7B32D;
+}
+
+.btn-registrarse{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-font-family: Inter;
+    -fx-background-color: #DE3C3C;
+    -fx-font-weight: bold;
+    -fx-font-size: 28;
+    -fx-padding: 15px 30px;
+}
+
+.btn-registrarse:hover{
+    -fx-background-color: #C00000;
+}
+
+
+.btn-iniciarsesion{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-font-family: Inter;
+    -fx-background-color: #F7B32D;
+    -fx-font-weight: bold;
+    -fx-font-size: 28;
+    -fx-padding: 15px 30px;
+}
+
+.btn-iniciarsesion:hover{
+    -fx-background-color: #FF9500;
+}

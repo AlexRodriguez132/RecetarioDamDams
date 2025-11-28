@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<StackPane minHeight="400.0" minWidth="600.0" styleClass="login-background" stylesheets="@../../css/login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="mx.edu.utez.proyectorecetario.controller.RegistroController">
+    <VBox alignment="TOP_CENTER" maxHeight="700" maxWidth="600" spacing="20" styleClass="login-card">
+        <HBox alignment="TOP_LEFT">
+            <Button onAction="#onScreenLandingPage" styleClass="btn-back">
+                <graphic>
+                    <ImageView fitHeight="45" fitWidth="45">
+                        <image>
+                            <Image url="@../../images/backflecha.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="35" top="30" />
+                </HBox.margin>
+            </Button>
+            <ImageView fitHeight="85" fitWidth="190">
+                <image>
+                    <Image url="@../../images/logorecetario.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="120" top="30" />
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+
+        <VBox>
+            <VBox alignment="CENTER">
+                <Label text="REGISTRATE" styleClass="tituloLogin">
+                    <VBox.margin>
+                        <Insets top="20" />
+                    </VBox.margin>
+                </Label>
+            </VBox>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Nombre de usuario" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="10" />
+                </VBox.margin>
+            </TextFlow>
+
+            <TextField fx:id="txtNombreUsuario" prefHeight="30" promptText="Ej: Usuario145" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </TextField>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Email" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="15" />
+                </VBox.margin>
+            </TextFlow>
+
+            <TextField fx:id="txtEmail" prefHeight="30" promptText="Ej: UserExample@gmail.com" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </TextField>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Contraseña" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="15" />
+                </VBox.margin>
+            </TextFlow>
+
+            <PasswordField fx:id="txtContrasena" prefHeight="30" promptText="Ej: iLovemangools123" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </PasswordField>
+
+            <TextFlow>
+                <Text styleClass="text-label" text=" Confirmar contraseña" />
+                <Text styleClass="asterisco-label" text="*" />
+                <Text styleClass="text-label" text=":" />
+                <VBox.margin>
+                    <Insets left="45" top="15" />
+                </VBox.margin>
+            </TextFlow>
+
+            <PasswordField fx:id="txtConfirmarContrasena" prefHeight="30" promptText="Ej: iLovemangools123" styleClass="input">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="10" />
+                </VBox.margin>
+            </PasswordField>
+
+            <Button onAction="#onRegister" prefHeight="28" prefWidth="1000" styleClass="btn-ingresar" text="Registrarse">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="45" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </VBox>
+</StackPane>
+

@@ -1,0 +1,61 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.alert-card{
+    -fx-background-color: #F8F9FC;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+}
+
+.titulos-cards{
+    -fx-fill: black;
+    -fx-font-size: 30px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+
+.texto{
+    -fx-fill: black;
+    -fx-font-size: 20px;
+    -fx-font-family: Inter;
+}
+
+.btn-aceptar{
+    -fx-text-fill: #DE3C3C;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-border-color: #DE3C3C;
+    -fx-font-family: Inter;
+    -fx-background-color: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 100px;
+}
+
+
+.btn-aceptar:hover{
+    -fx-background-color: #C00000;
+    -fx-text-fill: #FFFFFF;
+}
+
+.btn-aceptar2{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-font-family: Inter;
+    -fx-background-color: #DE3C3C;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 100px;
+}
+
+
+.btn-aceptar2:hover{
+    -fx-background-color: #C00000;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.AlertController" minHeight="400.0" minWidth="600.0" stylesheets="@../../css/alert.css">
+    <VBox alignment="TOP_CENTER" maxHeight="300" maxWidth="600" spacing="20" styleClass="login-card">
+        <HBox alignment="TOP_LEFT">
+            <ImageView fitHeight="100" fitWidth="100">
+                <image>
+                    <Image url="@../../images/alertas/alert.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="250" top="30" />
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+
+        <VBox alignment="CENTER">
+            <Label fx:id="lblTitulo" styleClass="titulos-cards">
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
+            </Label>
+
+            <Label fx:id="lblMensaje" styleClass="texto">
+                <VBox.margin>
+                    <Insets top="20" />
+                </VBox.margin>
+            </Label>
+
+
+            <Button fx:id="btnAceptar" prefHeight="28" prefWidth="1000" styleClass="btn-aceptar" text="Aceptar">
+                <VBox.margin>
+                    <Insets left="145" right="145" top="45" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </VBox>
+</StackPane>

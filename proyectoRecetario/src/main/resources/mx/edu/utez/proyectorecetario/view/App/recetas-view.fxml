@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane styleClass="recetas-background" stylesheets="@../../css/recetas.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.RecetasController">
+    <top>
+        <fx:include fx:id="navLoader" source="../NavBar/navbarRecetas.fxml" />
+    </top>
+    <center>
+        <VBox spacing="30">
+        <HBox alignment="TOP_CENTER">
+            <HBox prefHeight="50">
+                <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
+                <ImageView fitHeight="23" fitWidth="23">
+                    <image>
+                        <Image url="@../../images/searchBar/buscar.png" />
+                    </image>
+                </ImageView>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+                </StackPane>
+                <TextField fx:id="tfBuscar" onKeyPressed="#onEnterBuscar" prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
+
+                <Button fx:id="btnFiltrar" maxHeight="42" styleClass="searchbarIcono2">
+                    <graphic>
+                        <ImageView fitHeight="25" fitWidth="25">
+                            <image>
+                                <Image url="@../../images/searchBar/filtro.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <HBox.margin>
+                    <Insets top="15" />
+                </HBox.margin>
+            </HBox>
+        </HBox>
+        <HBox>
+            <Button styleClass="btn-crearreceta" onAction="#onScreenCrearReceta">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <ImageView fitHeight="35" fitWidth="35">
+                            <image>
+                                <Image url="@../../images/recetas/signomas.png"/>
+                            </image>
+                            <HBox.margin>
+                                <Insets right="5"/>
+                            </HBox.margin>
+                        </ImageView>
+                        <Label text="Crear Receta" styleClass="textbtn-crearreceta">
+                            <HBox.margin>
+                                <Insets right="10"/>
+                            </HBox.margin>
+                        </Label>
+                    </HBox>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="140"/>
+                </HBox.margin>
+            </Button>
+        </HBox>
+        </VBox>
+    </center>
+</BorderPane>

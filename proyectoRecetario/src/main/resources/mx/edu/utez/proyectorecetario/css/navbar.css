@@ -1,0 +1,75 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.navbar{
+    -fx-background-color: #DE3C3C;
+}
+
+.btnHome{
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+}
+.btnHome-active{
+    -fx-background-color: #C00000;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}
+
+
+.btnRecetas{
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+}
+.btnRecetas-active{
+    -fx-background-color: #C00000;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}
+
+
+.btnFavoritos{
+    -fx-background-color: transparent;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+}
+.btnFavoritos-active{
+    -fx-background-color: #C00000;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 22px;
+    -fx-font-family: Inter;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bold;
+}

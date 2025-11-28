@@ -1,0 +1,106 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.login-background {
+    -fx-background-image: url("../images/login/fondologin.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.login-card{
+    -fx-background-color: #F8F9FC;
+    -fx-background-radius: 30px;
+}
+
+.btn-back{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.text-label{
+    -fx-fill: black;
+    -fx-font-size: 20px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+
+.asterisco-label{
+    -fx-fill: #DE3C3C;
+    -fx-font-size: 20px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+
+.input{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-border-color: #C2C2C2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 20px;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+}
+
+.input:focused {
+    -fx-border-color: #DE3C3C;
+    -fx-border-width: 1.5px;
+}
+
+.btn-ForgotPass {
+    -fx-text-fill: #F7B32D;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.btn-ForgotPass:hover{
+    fx-text-fill: #00ff2a;
+}
+
+.btn-ingresar{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-font-family: Inter;
+    -fx-background-color: #DE3C3C;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 100px;
+}
+
+
+.btn-ingresar:hover{
+    -fx-background-color: #C00000;
+}
+
+.texto{
+    -fx-fill: black;
+    -fx-font-size: 20px;
+    -fx-font-family: Inter;
+}
+
+.btn-ingresarCorreo{
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 50px;
+    -fx-font-family: Inter;
+    -fx-background-color: #DE3C3C;
+    -fx-font-weight: bold;
+    -fx-font-size: 18px;
+    -fx-padding: 5px 100px;
+}
+
+.tituloLogin{
+    -fx-fill: black;
+    -fx-font-size: 30px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}

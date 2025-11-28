@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane minHeight="400.0" minWidth="600.0" stylesheets="@../css/landingPage.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.LandingPageController">
+    <top>
+        <HBox >
+            <ImageView fitHeight="100" fitWidth="220">
+                <image>
+                    <Image url="@../images/logorecetario.png" />
+                </image>
+                <HBox.margin>
+                    <Insets bottom="60" left="100" top="50" />
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+    </top>
+    <center>
+        <VBox>
+            <HBox>
+                <VBox>
+                    <VBox>
+                        <ImageView fitHeight="160" fitWidth="550">
+                            <image>
+                                <Image url="@../images/landingPage/migestorderecetas.png" />
+                            </image>
+                            <VBox.margin>
+                                <Insets top="10" left="100"/>
+                            </VBox.margin>
+                        </ImageView>
+                    </VBox>
+                    <Label styleClass="subtitulo" text='"Organiza, crea y comparte tus recetas favoritas"'>
+                        <VBox.margin>
+                            <Insets left="100" bottom="25" top="50"/>
+                        </VBox.margin>
+                    </Label>
+                    <HBox spacing="40">
+                        <Button text="Registrarse" styleClass="btn-registrarse" onAction="#onScreenRegister">
+                            <HBox.margin>
+                                <Insets left="100" bottom="10" top="40"/>
+                            </HBox.margin>
+                        </Button>
+                        <Button text="Iniciar Sesión" styleClass="btn-iniciarsesion"  onAction="#onScreenLogin">
+                            <HBox.margin>
+                                <Insets bottom="10" top="40"/>
+                            </HBox.margin>
+                        </Button>
+                    </HBox>
+                </VBox>
+
+                <VBox alignment="TOP_RIGHT">
+                    <ImageView fitHeight="350" fitWidth="620">
+                        <image>
+                            <Image url="@../images/landingPage/comidalandingpage.png" />
+                        </image>
+                        <VBox.margin>
+                            <Insets top="90" left="150" bottom="20"/>
+                        </VBox.margin>
+                    </ImageView>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox>
+            <HBox prefHeight="30">
+                <Region HBox.hgrow="ALWAYS" style="-fx-background-color: #DE3C3C;" />
+            </HBox>
+            <HBox prefHeight="30">
+                <Region HBox.hgrow="ALWAYS" style="-fx-background-color: #F7B32D;" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
+
