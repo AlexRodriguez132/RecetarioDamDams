@@ -5,64 +5,89 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane styleClass="recetas-background" stylesheets="@../../css/recetas.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.RecetasController">
+<BorderPane styleClass="recetas-background" stylesheets="@../../css/recetas.css"
+            xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="mx.edu.utez.proyectorecetario.controller.RecetasController">
     <top>
-        <fx:include fx:id="navLoader" source="../NavBar/navbarRecetas.fxml" />
+        <fx:include fx:id="navLoader" source="../NavBar/navbarRecetas.fxml"/>
     </top>
     <center>
-        <VBox spacing="30">
-        <HBox alignment="TOP_CENTER">
-            <HBox prefHeight="50">
-                <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
-                <ImageView fitHeight="23" fitWidth="23">
-                    <image>
-                        <Image url="@../../images/searchBar/buscar.png" />
-                    </image>
-                </ImageView>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-                </StackPane>
-                <TextField fx:id="tfBuscar" onKeyPressed="#onEnterBuscar" prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
+        <VBox>
+            <HBox alignment="TOP_CENTER">
+                <HBox prefHeight="50">
+                    <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
+                        <ImageView fitHeight="23" fitWidth="23">
+                            <image>
+                                <Image url="@../../images/searchBar/buscar.png"/>
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <TextField fx:id="tfBuscar" onKeyPressed="#onEnterBuscar" prefWidth="700"
+                               promptText="Buscar receta..." styleClass="searchbar"/>
 
-                <Button fx:id="btnFiltrar" maxHeight="42" styleClass="searchbarIcono2">
-                    <graphic>
-                        <ImageView fitHeight="25" fitWidth="25">
-                            <image>
-                                <Image url="@../../images/searchBar/filtro.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-                </Button>
-                <HBox.margin>
-                    <Insets top="15" />
-                </HBox.margin>
+                    <Button fx:id="btnFiltrar" maxHeight="42" styleClass="searchbarIcono2">
+                        <graphic>
+                            <ImageView fitHeight="25" fitWidth="25">
+                                <image>
+                                    <Image url="@../../images/searchBar/filtro.png"/>
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <HBox.margin>
+                        <Insets top="15"/>
+                    </HBox.margin>
+                </HBox>
             </HBox>
-        </HBox>
-        <HBox>
-            <Button styleClass="btn-crearreceta" onAction="#onScreenCrearReceta">
-                <graphic>
-                    <HBox alignment="CENTER_LEFT" spacing="10">
-                        <ImageView fitHeight="35" fitWidth="35">
-                            <image>
-                                <Image url="@../../images/recetas/signomas.png"/>
-                            </image>
-                            <HBox.margin>
-                                <Insets right="5"/>
-                            </HBox.margin>
-                        </ImageView>
-                        <Label text="Crear Receta" styleClass="textbtn-crearreceta">
-                            <HBox.margin>
-                                <Insets right="10"/>
-                            </HBox.margin>
-                        </Label>
-                    </HBox>
-                </graphic>
-                <HBox.margin>
-                    <Insets left="140"/>
-                </HBox.margin>
-            </Button>
-        </HBox>
+            <VBox>
+                <Button styleClass="btn-crearreceta" onAction="#onScreenCrearReceta">
+                    <graphic>
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../images/recetas/signomas.png"/>
+                                </image>
+                                <HBox.margin>
+                                    <Insets right="5"/>
+                                </HBox.margin>
+                            </ImageView>
+                            <Label text="Crear Receta" styleClass="textbtn-crearreceta">
+                                <HBox.margin>
+                                    <Insets right="10"/>
+                                </HBox.margin>
+                            </Label>
+                        </HBox>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets left="125"/>
+                    </VBox.margin>
+                </Button>
+                <HBox alignment="CENTER">
+                    <ImageView fitHeight="70" fitWidth="1280">
+                        <image>
+                            <Image url="@../../images/titulos/misrecetas.png"/>
+                        </image>
+                        <HBox.margin>
+                            <Insets top="20"/>
+                        </HBox.margin>
+                    </ImageView>
+                </HBox>
+                <VBox.margin>
+                    <Insets top="20"/>
+                </VBox.margin>
+                <ScrollPane fitToWidth="true" prefHeight="1000" styleClass="scroll-pane">
+                    <content>
+                        <FlowPane fx:id="cardsContainer" hgap="20" vgap="20" prefWrapLength="1200">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                        </FlowPane>
+                    </content>
+                    <VBox.margin>
+                        <Insets left="120" right="120" top="10"/>
+                    </VBox.margin>
+                </ScrollPane>
+            </VBox>
         </VBox>
     </center>
 </BorderPane>

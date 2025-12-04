@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import mx.edu.utez.proyectorecetario.dao.UsuarioDAO;
 import mx.edu.utez.proyectorecetario.model.Usuario;
+import mx.edu.utez.proyectorecetario.util.Sesion;
 
 import java.io.IOException;
 
@@ -34,7 +35,7 @@ public class RegistroController {
         String confirmarContrasena = txtConfirmarContrasena.getText().trim();
 
         if (nombreUsuario.isEmpty() || email.isEmpty() || contrasena.isEmpty() || confirmarContrasena.isEmpty()) {
-            mostrarAlerta("Campos incompletos", "Porfavor completa todos los campos.", null);
+            mostrarAlerta("Campos incompletos", "Por favor completa todos los campos.", null);
             txtNombreUsuario.clear();
             txtEmail.clear();
             txtContrasena.clear();
@@ -42,13 +43,18 @@ public class RegistroController {
             return;
         }
 
-
         if (!contrasena.equals(confirmarContrasena)) {
-            mostrarAlerta("Contraseña incorrecta", "Las contraseñas no coinciden, intentalo de nuevo.", null);
+            mostrarAlerta("Contraseña incorrecta", "Las contraseñas no coinciden, inténtalo de nuevo.", null);
             txtNombreUsuario.clear();
             txtEmail.clear();
             txtContrasena.clear();
             txtConfirmarContrasena.clear();
+            return;
+        }
+
+        if (usuarioDAO.buscarPorNombre(nombreUsuario) != null) {
+            mostrarAlerta("Nombre en uso", "Ese nombre de usuario ya existe, elige otro.", null);
+            txtNombreUsuario.clear();
             return;
         }
 
@@ -61,18 +67,33 @@ public class RegistroController {
             return;
         }
 
+
+        if (!email.endsWith("@gmail.com") && !email.endsWith("@utez.edu.mx")) {
+            mostrarAlerta("Email inválido", "El correo debe terminar en @gmail.com o en @utez.edu.mx", null);
+            txtEmail.clear();
+            return;
+        }
+
         Usuario nuevo = new Usuario(nombreUsuario, contrasena, email);
 
         boolean registrado = usuarioDAO.registrarUsuario(nuevo);
 
         if (registrado) {
-            mostrarAlertaExito("¡Registro exitoso!", "Tu cuenta está lista para usar.", () -> onScreenHome(event));
+
+            Usuario usuarioRegistrado = usuarioDAO.buscarPorEmail(email);
+
+            Sesion.iniciarSesion(usuarioRegistrado);
+
+            mostrarAlertaExito(
+                    "¡Registro exitoso!",
+                    "Tu cuenta está lista para usar.",
+                    () -> onScreenHome(event)
+            );
+
             txtNombreUsuario.clear();
             txtEmail.clear();
             txtContrasena.clear();
             txtConfirmarContrasena.clear();
-            return;
-
 
         } else {
             mostrarAlertaError("Error", "No se ha podido registrar el usuario.", null);
@@ -99,7 +120,8 @@ public class RegistroController {
             e.printStackTrace();
         }
     }
-    private void mostrarAlerta(String titulo, String mensaje, Runnable accion){
+
+    private void mostrarAlerta(String titulo, String mensaje, Runnable accion) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/mx/edu/utez/proyectorecetario/view/Alertas/alert-alert.fxml"));
             Parent alertRoot = loader.load();
@@ -113,12 +135,12 @@ public class RegistroController {
             stage.setTitle(titulo);
             stage.show();
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void mostrarAlertaExito(String titulo, String mensaje, Runnable accion){
+    private void mostrarAlertaExito(String titulo, String mensaje, Runnable accion) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/mx/edu/utez/proyectorecetario/view/Alertas/alert-ingresoexitoso.fxml"));
             Parent alertRoot = loader.load();
@@ -132,12 +154,12 @@ public class RegistroController {
             stage.setTitle(titulo);
             stage.show();
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void mostrarAlertaError(String titulo, String mensaje, Runnable accion){
+    private void mostrarAlertaError(String titulo, String mensaje, Runnable accion) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/mx/edu/utez/proyectorecetario/view/Alertas/alert-error.fxml"));
             Parent alertRoot = loader.load();
@@ -151,10 +173,11 @@ public class RegistroController {
             stage.setTitle(titulo);
             stage.show();
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void onScreenHome(ActionEvent event) {
         try {
@@ -164,7 +187,7 @@ public class RegistroController {
             stage.setScene(new Scene(root));
             stage.setMaximized(true);
             stage.show();
-            ((Node)(event.getSource())).getScene().getWindow().hide();
+            ((Node) (event.getSource())).getScene().getWindow().hide();
 
 
         } catch (IOException e) {

@@ -1,0 +1,239 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.verrecetas-background{
+    -fx-background-image: url("../images/recetas/backgroundcrearreceta.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.titulo-vistareceta{
+    -fx-text-fill: #FFFFFF;
+    -fx-fill: #FFFFFF;
+    -fx-font-family: Inter;
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+}
+
+.titulo-verreceta{
+    -fx-text-fill: #88332A;
+    -fx-font-family: Inter;
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
+}
+
+.verreceta-card{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30px;
+}
+
+.top-color{
+    -fx-background-color: #DE3C3C;
+}
+
+.btn-back{
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.usuario{
+    -fx-fill: black;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+}
+
+.datos{
+    -fx-fill: black;
+    -fx-font-size: 20px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+
+.btn-exportar{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.btn-exportar:hover{
+    -fx-border-radius: 50px;
+    -fx-background-color: #e4e4e4;
+    -fx-background-radius: 50px;
+}
+
+.linea-roja{
+    -fx-background-color: #DE3C3C;
+}
+
+.btn-favorito{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.subtitulo-receta{
+    -fx-fill: black;
+    -fx-font-size: 25px;
+    -fx-font-family: Inter;
+    -fx-font-weight: bold;
+}
+
+
+.categoria-desayuno {
+    -fx-background-color: #F7B32D;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-desayuno:selected {
+    -fx-background-color: #FF9500;
+    -fx-effect: dropshadow(gaussian, #F7B32D, 10, 0.6, 0, 0);
+}
+
+
+.categoria-comida {
+    -fx-background-color: #FE823B;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-comida:selected {
+    -fx-background-color: #FF5E00;
+    -fx-effect: dropshadow(gaussian, #FE823B, 10, 0.6, 0, 0);
+}
+
+
+.categoria-cena {
+    -fx-background-color: #DE3C3C;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-cena:selected {
+    -fx-background-color: #C00000;
+    -fx-effect: dropshadow(gaussian, #DE3C3C, 10, 0.6, 0, 0);
+}
+
+
+.categoria-postre {
+    -fx-background-color: #F72DC8;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-postre:selected {
+    -fx-background-color: #b11d8f;
+    -fx-effect: dropshadow(gaussian, #F72DC8, 10, 0.6, 0, 0);
+}
+
+
+.categoria-bebida {
+    -fx-background-color: #2D5CF7;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-bebida:selected {
+    -fx-background-color: #2346bc;
+    -fx-effect: dropshadow(gaussian, #2D5CF7, 10, 0.6, 0, 0);
+}
+
+
+.categoria-vegetariano {
+    -fx-background-color: #57EB22;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-vegetariano:selected {
+    -fx-background-color: #43ba19;
+    -fx-effect: dropshadow(gaussian, #57EB22, 10, 0.6, 0, 0);
+}
+
+
+.categoria-saludable {
+    -fx-background-color: #22EBAF;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-saludable:selected {
+    -fx-background-color: #0dbf8a;
+    -fx-effect: dropshadow(gaussian, #22EBAF, 10, 0.6, 0, 0);
+}
+
+
+.categoria-internacional {
+    -fx-background-color: #7D7D7D;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-internacional:selected {
+    -fx-background-color: #8a8a8a;
+    -fx-effect: dropshadow(gaussian, #656565, 10, 0.6, 0, 0);
+}
+
+
+.categoria-carne{
+    -fx-background-color: #822F25;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-carne:selected{
+    -fx-background-color: #591f18;
+    -fx-effect: dropshadow(gaussian, #822F25, 10, 0.6, 0, 0);
+}
+
+
+.categoria-pescado{
+    -fx-background-color: #00A2AD;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 18px;
+    -fx-font-family: Inter;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+}
+.categoria-pescado:selected{
+    -fx-background-color: #006e75;
+    -fx-effect: dropshadow(gaussian, #00A2AD, 10, 0.6, 0, 0);
+}
+
+
+.textarea-receta {
+    -fx-font-size: 18px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-family: "Inter";
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-width: 0;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}

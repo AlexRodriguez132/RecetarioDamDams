@@ -73,3 +73,14 @@
     -fx-border-color: transparent;
     -fx-font-weight: bold;
 }
+
+
+.btnFlecha {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+
+.context-menu {
+    -fx-background-radius: 12;
+    -fx-padding: 8;
+}

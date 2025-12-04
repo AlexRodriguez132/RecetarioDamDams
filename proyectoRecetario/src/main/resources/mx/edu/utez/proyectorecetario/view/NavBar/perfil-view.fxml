@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<StackPane minHeight="400.0" minWidth="600.0"
+           styleClass="login-background"
+           stylesheets="@../../css/login.css"
+           xmlns:fx="http://javafx.com/fxml/1"
+           xmlns="http://javafx.com/javafx/17.0.12"
+           fx:controller="mx.edu.utez.proyectorecetario.controller.PerfilController">
+
+    <VBox alignment="TOP_CENTER" maxHeight="600" maxWidth="600" spacing="20" styleClass="login-card">
+
+        <!-- Barra superior -->
+        <HBox alignment="TOP_LEFT">
+            <Button onAction="#onScreenHome" styleClass="btn-back">
+                <graphic>
+                    <ImageView fitHeight="45" fitWidth="45">
+                        <image>
+                            <Image url="@../../images/backflecha.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="35" top="30"/>
+                </HBox.margin>
+            </Button>
+
+            <ImageView fitHeight="85" fitWidth="190">
+                <image>
+                    <Image url="@../../images/logorecetario.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets left="120" top="30"/>
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+
+        <!-- Contenido del perfil -->
+        <VBox alignment="CENTER">
+
+            <VBox alignment="CENTER">
+                <Label text="MI PERFIL" styleClass="tituloLogin">
+                    <VBox.margin>
+                        <Insets top="20" bottom="50"/>
+                    </VBox.margin>
+                </Label>
+            </VBox>
+
+            <VBox alignment="CENTER" spacing="25" prefWidth="400">
+
+                <!-- Usuario -->
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Usuario" styleClass="text-label"/>
+                    <Label fx:id="lblUsuario" styleClass="text-label"/>
+                </VBox>
+
+                <!-- Separación elegante -->
+                <Region prefHeight="10"/>
+
+                <!-- Email -->
+                <VBox alignment="CENTER" spacing="8">
+                    <Label text="Email" styleClass="text-label"/>
+                    <Label fx:id="lblEmail" styleClass="text-label"/>
+                </VBox>
+
+            </VBox>
+
+
+        </VBox>
+    </VBox>
+</StackPane>
+
+

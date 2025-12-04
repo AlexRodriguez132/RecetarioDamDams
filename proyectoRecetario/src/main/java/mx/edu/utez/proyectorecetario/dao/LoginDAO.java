@@ -1,6 +1,7 @@
 package mx.edu.utez.proyectorecetario.dao;
 
 import javafx.scene.control.Alert;
+import mx.edu.utez.proyectorecetario.model.Usuario;
 import mx.edu.utez.proyectorecetario.util.ConexionBD;
 
 import java.sql.Connection;
@@ -9,7 +10,7 @@ import java.sql.ResultSet;
 
 public class LoginDAO {
 
-    public boolean validarLogin(String usuario, String contrasena) {
+    public Usuario validarLogin(String usuario, String contrasena) {
         String sql = "SELECT * FROM usuarios WHERE nombre_usuario = ? AND contrasena = ?";
         try (Connection conn = ConexionBD.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -18,16 +19,23 @@ public class LoginDAO {
             ps.setString(2, contrasena);
             ResultSet rs = ps.executeQuery();
 
-            return rs.next(); // true si encontró un registro, false si no
-
+            if (rs.next()) {
+                Usuario u = new Usuario();
+                u.setId_usuario(rs.getInt("id_usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
+                u.setContrasena(rs.getString("contrasena"));
+                u.setEmail(rs.getString("email"));
+                u.setFechaRegistro(rs.getDate("fecha_registro"));
+                return u;
+            }
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
         }
+        return null;
     }
 
     public boolean existeCorreo(String correo){
-        String sql = "SELECT * FROM USUARIOS WHERE email = ?";
+        String sql = "SELECT * FROM usuarios WHERE email = ?";
         try(Connection conn = ConexionBD.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)) {
 
@@ -40,14 +48,4 @@ public class LoginDAO {
             return false;
         }
     }
-
-    public String enviarCodigoSimulado(String correo) {
-        // Generamos un código de 4 dígitos
-        int codigo = (int)(Math.random() * 9000) + 1000;
-        System.out.println("Enviando código al correo: " + correo + " -> Código: " + codigo);
-        // Aquí se simula que se envía, no se hace envío real
-        return String.valueOf(codigo);
-    }
-
-
 }

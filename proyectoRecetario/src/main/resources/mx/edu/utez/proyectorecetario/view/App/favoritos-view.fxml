@@ -6,13 +6,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.HomeController" stylesheets="@../../css/home.css" styleClass="home-background">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.FavoritosController" stylesheets="@../../css/favoritos.css" styleClass="favoritos-background">
 
     <top>
         <fx:include fx:id="navLoader" source="../NavBar/navbarFavoritos.fxml"/>
     </top>
 
     <center>
+        <VBox>
+            <HBox alignment="TOP_CENTER">
+                <HBox prefHeight="50">
+                    <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
+                        <ImageView fitHeight="23" fitWidth="23">
+                            <image>
+                                <Image url="@../../images/searchBar/buscar.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                    <TextField prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
 
+                    <Button  maxHeight="42" styleClass="searchbarIcono2">
+                        <graphic>
+                            <ImageView fitHeight="25" fitWidth="25">
+                                <image>
+                                    <Image url="@../../images/searchBar/filtro.png" />
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <HBox.margin>
+                        <Insets top="15" />
+                    </HBox.margin>
+                </HBox>
+
+            </HBox>
+
+            <HBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="1280">
+                    <image>
+                        <Image url="@../../images/titulos/favoritos.png"/>
+                    </image>
+                </ImageView>
+            </HBox>
+            <VBox.margin>
+                <Insets top="20"/>
+            </VBox.margin>
+            <ScrollPane fitToWidth="true" prefHeight="1000" styleClass="scroll-pane">
+                <content>
+                    <FlowPane fx:id="cardsContainer" hgap="20" vgap="20" prefWrapLength="1200">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                    </FlowPane>
+                </content>
+                <VBox.margin>
+                    <Insets left="120" right="120" top="10"/>
+                </VBox.margin>
+            </ScrollPane>
+        </VBox>
     </center>
 </BorderPane>

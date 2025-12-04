@@ -33,20 +33,39 @@ public class UsuarioDAO {
         }
     }
 
+    public Usuario buscarPorNombre(String nombre) {
+        String sql = "SELECT * FROM usuarios WHERE nombre_usuario = ?";
+        try {
+            Connection conn = ConexionBD.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nombre_usuario"),
+                        rs.getString("contrasena"),
+                        rs.getString("email"),
+                        rs.getDate("fecha_registro")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public Usuario buscarPorEmail(String email){
         String sql = "Select * FROM usuarios WHERE email = ?";
         Usuario usuario = null;
 
         try(Connection conn = ConexionBD.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql)) {
-            //este set string mejora la seguridad y evita injeccion asi como reemplazar el ? con un valor tipo string
-            //El 1 es el parametro y se le agrega a email
             ps.setString(1, email);
-            //el executeQuery ejecuta una consulta y revuelve un resultset
             ResultSet rs = ps.executeQuery();
-            //rs debe ser o 0 o 1
-            //rs.next mueve el cursor a la siguiente fila del rs
-            //Devuelve true si existe una fila
+
             if(rs.next()){
                 usuario = new Usuario();
                 usuario.setId_usuario(rs.getInt("id_usuario"));
@@ -82,4 +101,45 @@ public class UsuarioDAO {
             return false;
         }
     }
+
+    public Usuario buscarPorId(int id) {
+        String sql = "SELECT * FROM usuarios WHERE id_usuario = ?";
+        try (Connection conn = ConexionBD.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nombre_usuario"),
+                        rs.getString("contrasena"),
+                        rs.getString("email"),
+                        rs.getDate("fecha_registro")
+                );
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /*
+    public static int obtenerIdPorNombre(String nombre) {
+        String sql = "SELECT id_usuario FROM usuarios WHERE nombre_usuario = ?";
+        try (Connection conn = ConexionBD.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt("id_usuario");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    */
 }

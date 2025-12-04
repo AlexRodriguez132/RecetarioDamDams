@@ -5,7 +5,7 @@ public class Receta {
     private int id_receta;
     private String titulo;
     private String descripcion;
-    private byte[] imagen;
+    private String imagen;
     private String dificultad;
     private String duracion;
     private String ingredientes;
@@ -22,8 +22,8 @@ public class Receta {
     public String getDescripcion() { return descripcion; }
     public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
 
-    public byte[] getImagen() { return imagen; }
-    public void setImagen(byte[] imagen) { this.imagen = imagen; }
+    public String getImagen() { return imagen; }
+    public void setImagen(String imagen) { this.imagen = imagen; }
 
     public String getDificultad() { return dificultad; }
     public void setDificultad(String dificultad) { this.dificultad = dificultad; }

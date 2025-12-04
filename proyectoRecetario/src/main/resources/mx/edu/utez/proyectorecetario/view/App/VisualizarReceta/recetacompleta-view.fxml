@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane stylesheets="@../../../css/verreceta.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.RecetaCompletaController">
+
+    <top>
+        <HBox prefHeight="50" styleClass="top-color">
+            <ImageView fitHeight="60" fitWidth="150">
+                <image>
+                    <Image url="@../../../images/navBar/logorecetarioblanco.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="100" top="8" />
+                </HBox.margin>
+            </ImageView>
+            <Text styleClass="titulo-vistareceta" text="VER RECETA">
+                <HBox.margin>
+                    <Insets bottom="20" left="50" top="25" />
+                </HBox.margin>
+            </Text>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" stylesheets="@../../../css/verreceta.css">
+            <VBox alignment="CENTER" minWidth="500" spacing="20" styleClass="verrecetas-background">
+
+                <VBox minWidth="500" styleClass="verreceta-card">
+                    <VBox>
+                        <HBox alignment="CENTER">
+                            <Button onAction="#onScreenHome" styleClass="btn-back">
+                                <graphic>
+                                    <ImageView fitHeight="45" fitWidth="45">
+                                        <image>
+                                            <Image url="@../../../images/backflecha.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets left="30" top="30" />
+                                </HBox.margin>
+                            </Button>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Label fx:id="lblTituloReceta" alignment="CENTER" styleClass="titulo-verreceta">
+                                <HBox.margin>
+                                    <Insets top="10" />
+                                </HBox.margin>
+                            </Label>
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button styleClass="btn-exportar" onAction="#onExportar">
+                                <graphic>
+                                    <ImageView fitHeight="30" fitWidth="30">
+                                        <image>
+                                            <Image url="@../../../images/recetas/exportar.png" />
+                                        </image>
+                                    </ImageView>
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets right="30" top="30" />
+                                </HBox.margin>
+                            </Button>
+                        </HBox>
+                        <VBox>
+                        <HBox alignment="CENTER">
+                            <Text styleClass="usuario" text="Creada por : " />
+                            <Label fx:id="lblUsuario" styleClass="usuario" />
+                            <HBox.margin>
+                                <Insets top="20" />
+                            </HBox.margin>
+                        </HBox>
+                        <VBox spacing="10">
+                        <StackPane fx:id="contenedorImagen">
+                            <ImageView fx:id="imgReceta" fitHeight="500" fitWidth="900" />
+                            <VBox.margin>
+                                <Insets left="20" right="20" top="40" />
+                            </VBox.margin>
+                        </StackPane>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="180">
+
+                            <ToggleButton fx:id="btnFavorito" onAction="#onToggleFavorito" styleClass="btn-favorito">
+                                <graphic>
+                                    <ImageView fx:id="imgFavoritoIcon" fitHeight="30" fitWidth="30" />
+                                </graphic>
+                                <HBox.margin>
+                                    <Insets top="20" />
+                                </HBox.margin>
+                            </ToggleButton>
+
+                            <HBox alignment="CENTER" spacing="10">
+                                <HBox.margin>
+                                    <Insets top="20" />
+                                </HBox.margin>
+
+                                <ImageView fitHeight="30" fitWidth="30">
+                                    <image>
+                                        <Image url="@../../../images/recetas/reloj.png" />
+                                    </image>
+                                </ImageView>
+
+                                <Label fx:id="lblDuracion" styleClass="datos" />
+                            </HBox>
+
+                            <HBox alignment="CENTER" spacing="10">
+                                <HBox.margin>
+                                    <Insets top="20" />
+                                </HBox.margin>
+
+                                <ImageView fitHeight="30" fitWidth="30">
+                                    <image>
+                                        <Image url="@../../../images/recetas/grafica.png" />
+                                    </image>
+                                </ImageView>
+
+                                <Label fx:id="lblDificultad" styleClass="datos" />
+                            </HBox>
+                        </HBox>
+
+                        <VBox alignment="CENTER" prefWidth="900" spacing="20" styleClass="verreceta-card">
+
+                            <VBox alignment="CENTER" maxWidth="900" prefWidth="900" spacing="10">
+                                <Separator prefWidth="900" styleClass="linea-roja" />
+
+
+                                <VBox maxWidth="800" spacing="15">
+                                    <Text styleClass="subtitulo-receta" text="CATEGORIAS" />
+                                    <FlowPane fx:id="boxCategorias" alignment="CENTER_LEFT" hgap="10" prefWidth="800" vgap="10"/>
+                                    <VBox.margin>
+                                        <Insets top="20"/>
+                                    </VBox.margin>
+                                </VBox>
+
+                                <!-- DESCRIPCIÓN -->
+                                <VBox maxWidth="800" spacing="15">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Text styleClass="subtitulo-receta" text="DESCRIPCIÓN" />
+                                        <ImageView fitHeight="25" fitWidth="25" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../images/recetas/descripcionicono.png" />
+                                            </image>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label fx:id="txtDescripcion" maxWidth="800" prefHeight="80" wrapText="true" styleClass="textarea-receta"/>
+                                    <VBox.margin>
+                                        <Insets top="20"/>
+                                    </VBox.margin>
+                                </VBox>
+
+                                <!-- INGREDIENTES -->
+                                <VBox maxWidth="800" spacing="15">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Text styleClass="subtitulo-receta" text="INGREDIENTES" />
+                                        <ImageView fitHeight="25" fitWidth="25" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../images/recetas/ingredientesicono.png" />
+                                            </image>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label fx:id="txtIngredientes" maxWidth="800" prefHeight="120" wrapText="true" styleClass="textarea-receta"/>
+                                    <VBox.margin>
+                                        <Insets top="20"/>
+                                    </VBox.margin>
+                                </VBox>
+
+                                <!-- PREPARACIÓN -->
+                                <VBox maxWidth="800" spacing="15">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Text styleClass="subtitulo-receta" text="PREPARACIÓN" />
+                                        <ImageView fitHeight="25" fitWidth="25" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../images/recetas/preparacionicono.png" />
+                                            </image>
+                                        </ImageView>
+                                    </HBox>
+                                    <Label fx:id="txtPasos" maxWidth="800" prefHeight="180" wrapText="true" styleClass="textarea-receta"/>
+                                    <VBox.margin>
+                                        <Insets top="20"/>
+                                    </VBox.margin>
+                                </VBox>
+
+                                <VBox.margin>
+                                    <Insets bottom="20" left="20" right="20" top="10" />
+                                </VBox.margin>
+                            </VBox>
+                        </VBox>
+                        </VBox>
+                    </VBox>
+                    <VBox.margin>
+                        <Insets bottom="30" left="140" right="140" top="20" />
+                    </VBox.margin>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

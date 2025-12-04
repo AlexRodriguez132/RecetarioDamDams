@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CssDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/card.css" dialect="JavaFX" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/crearrecetas.css" dialect="JavaFX" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/editarrecetas.css" dialect="JavaFX" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/favoritos.css" dialect="JavaFX" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/home.css" dialect="JavaFX" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/navbar.css" dialect="JavaFX" />
     <file url="file://$PROJECT_DIR$/src/main/resources/mx/edu/utez/proyectorecetario/css/registro.css" dialect="JavaFX" />

@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionBD {
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/GESTOR_RECETAS";
-    private static final String USER = "root";
-    private static final String PASSWORD = "Alex_132";
+    private static final String URL = "jdbc:mysql://gateway01.us-east-1.prod.aws.tidbcloud.com:4000/recetario";
+    private static final String USER = "2kMyW35bbCzmsA1.root";
+    private static final String PASSWORD = "GbNtVMbT2TsLiU6n";
 
 
     public static Connection getConnection() throws SQLException {

@@ -1,18 +1,15 @@
 package mx.edu.utez.proyectorecetario.util;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-
-import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import javax.swing.*;
+import jakarta.mail.*;
+import jakarta.mail.internet.InternetAddress;
+import jakarta.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.Random;
 
 public class Email {
+
     private final String emailFrom = "recetarionamdams@gmail.com";
-    private final String passwordFrom = "irtzhpqxjysmrldn";
+    private final String passwordFrom = "irtzhpqxjysmrldn"; // contraseña de aplicación
+
     private String emailTo;
     private String subject;
     private String content;
@@ -21,11 +18,10 @@ public class Email {
     private Session mSession;
     private MimeMessage mCorreo;
 
-    // Constructor
-    public Email(String emailTo, String nombreUsuario) {
+    public Email(String emailTo, String nombreUsuario, String pin) {
         this.emailTo = emailTo;
-        this.subject = "Mensaje de Confirmación.";
-        this.content = generarMensajeConfirmacion(generarPin(), nombreUsuario);
+        this.subject = "Mensaje de Confirmación";
+        this.content = generarMensajeConfirmacion(pin, nombreUsuario);
 
         mProperties = new Properties();
         configurarPropiedades();
@@ -34,14 +30,17 @@ public class Email {
 
     private void configurarPropiedades() {
         mProperties.put("mail.smtp.host", "smtp.gmail.com");
-        mProperties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        mProperties.setProperty("mail.smtp.starttls.enable", "true");
-        mProperties.setProperty("mail.smtp.port", "587");
-        mProperties.setProperty("mail.smtp.user", emailFrom);
-        mProperties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
-        mProperties.setProperty("mail.smtp.auth", "true");
+        mProperties.put("mail.smtp.port", "587");
+        mProperties.put("mail.smtp.auth", "true");
+        mProperties.put("mail.smtp.starttls.enable", "true");
+        mProperties.put("mail.smtp.ssl.protocols", "TLSv1.2");
 
-        mSession = Session.getInstance(mProperties);
+        mSession = Session.getInstance(mProperties, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(emailFrom, passwordFrom);
+            }
+        });
     }
 
     private void crearCorreo() {
@@ -58,35 +57,20 @@ public class Email {
 
     public void sendEmail() {
         try {
-            Transport transport = mSession.getTransport("smtp");
-            transport.connect(emailFrom, passwordFrom);
-            transport.sendMessage(mCorreo, mCorreo.getAllRecipients());
-            transport.close();
+            Transport.send(mCorreo);
             System.out.println("Correo enviado correctamente.");
         } catch (MessagingException e) {
             e.printStackTrace();
         }
     }
 
-    public static String generarPin() {
-        return String.valueOf(1000 + new Random().nextInt(9000));
-    }
-
     public static String generarMensajeConfirmacion(String pin, String nombreUsuario) {
-        return "Estimado/a " + nombreUsuario + ",\n\n" +
-                "Se ha generado un código de confirmación para su cuenta:\n\n" +
-                "Código de confirmación: " + pin + "\n\n" +
-                "Por favor, introduzca este código para completar la verificación de su cuenta.\n\n" +
-                "Si no solicitó este código, ignore este mensaje.\n\n" +
-                "Atentamente,\n" +
+        return "Estimado/a " + nombreUsuario + ",<br><br>" +
+                "Se ha generado un código de confirmación para su cuenta:<br><br>" +
+                "<b>Código de confirmación: " + pin + "</b><br><br>" +
+                "Por favor, introduzca este código para completar la verificación de su cuenta.<br><br>" +
+                "Si no solicitó este código, ignore este mensaje.<br><br>" +
+                "Atentamente,<br>" +
                 "El equipo de soporte de Ñam Dams";
-    }
-
-    public static void main(String[] args) {
-        String usuarioActual = "Damian";
-        String emailDestino = "hdamian955@gmail.com";
-
-        Email email = new Email(emailDestino, usuarioActual);
-        email.sendEmail();
     }
 }

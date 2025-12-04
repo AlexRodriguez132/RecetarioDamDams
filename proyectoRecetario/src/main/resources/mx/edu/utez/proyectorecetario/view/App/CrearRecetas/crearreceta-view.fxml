@@ -15,7 +15,7 @@
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="mx.edu.utez.proyectorecetario.controller.CrearRecetasController" stylesheets="@../../../css/crearrecetas.css">
     <top>
         <HBox styleClass="top-color" alignment="TOP_LEFT" prefHeight="50" >
-            <Button onAction="#onScreenHome" styleClass="btn-back">
+            <Button onAction="#onScreenMisRecetas" styleClass="btn-back">
                 <graphic>
                     <ImageView fitHeight="45" fitWidth="45">
                         <image>

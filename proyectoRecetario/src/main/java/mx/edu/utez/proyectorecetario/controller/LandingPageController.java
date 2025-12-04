@@ -13,6 +13,7 @@ import java.io.IOException;
 public class LandingPageController {
     @FXML
     private void onScreenLogin(ActionEvent event) {
+
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/mx/edu/utez/proyectorecetario/view/Ingresar/login-view.fxml"));
             Parent root = fxmlLoader.load();

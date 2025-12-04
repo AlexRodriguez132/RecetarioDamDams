@@ -104,3 +104,18 @@
     -fx-font-family: Inter;
     -fx-font-weight: bold;
 }
+
+.textfield-code{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 5px;
+    -fx-border-color: #C2C2C2;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 16px;
+    -fx-font-family: Inter;
+}
+
+.textfield-code:focused {
+    -fx-border-color: #DE3C3C;
+    -fx-border-width: 1.5px;
+}

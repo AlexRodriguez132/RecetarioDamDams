@@ -73,17 +73,30 @@
             </HBox>
         </graphic>
         <HBox.margin>
-            <Insets top="13" right="180"/>
+            <Insets top="13" right="170"/>
         </HBox.margin>
     </Button>
 
     <!-- Perfil -->
-    <ImageView fitHeight="50" fitWidth="50">
-        <image>
-            <Image url="@../../images/navBar/iconoPerfil.png"/>
-        </image>
+    <HBox alignment="CENTER" spacing="8">
+        <ImageView fitHeight="50" fitWidth="50">
+            <image>
+                <Image url="@../../images/navBar/iconoPerfil.png"/>
+            </image>
+        </ImageView>
+
+        <Button fx:id="btnMenuPerfil" onAction="#mostrarMenuPerfil" styleClass="btnFlecha">
+            <graphic>
+                <ImageView fitHeight="30" fitWidth="30">
+                    <image>
+                        <Image url="@../../images/navBar/flechamenu.png"/>
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+
         <HBox.margin>
-            <Insets top="15" right="100"/>
+            <Insets top="5" right="100"/>
         </HBox.margin>
-    </ImageView>
+    </HBox>
 </HBox>

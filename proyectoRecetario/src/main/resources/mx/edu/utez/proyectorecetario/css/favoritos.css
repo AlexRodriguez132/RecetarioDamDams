@@ -1,0 +1,68 @@
+.root{
+    color-rojo: #DE3C3C;
+    color-rojo-hover: #C00000;
+    color-amarillo: #F7B32D;
+    color-amarillo-hover: #FF9500;
+    color-blancoFondo:#F8F9FC;
+    color-cafe: #88332A;
+    color-gris: #C2C2C2;
+}
+
+.favoritos-background {
+    -fx-background-image: url("../images/fondorecetario.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar:vertical,
+.scroll-pane .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.searchbar{
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 19px;
+    -fx-font-family: Inter;
+    -fx-border-width: 1 0 1 0;
+    -fx-border-top-color: black;
+    -fx-border-right-color: black;
+    -fx-border-bottom-color: black;
+    -fx-border-left-color: white;
+    -fx-border-style: solid;
+    -fx-font-weight: 400;
+}
+
+.searchbarIcono1{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 50 0 0 50;
+    -fx-border-radius: 50 0 0 50;
+    -fx-border-top-color: black;
+    -fx-border-right-color: white;
+    -fx-border-bottom-color: black;
+    -fx-border-left-color: black;
+    -fx-border-style: solid;
+}
+
+.searchbarIcono2{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0 50 50 0;
+    -fx-border-radius: 0 50 50 0;
+    -fx-border-top-color: black;
+    -fx-border-right-color: white;
+    -fx-border-bottom-color: black;
+    -fx-border-left-color: black;
+    -fx-border-style: solid;
+}
+

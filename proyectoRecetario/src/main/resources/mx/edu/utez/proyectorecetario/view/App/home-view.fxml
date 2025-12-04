@@ -16,6 +16,7 @@
     </top>
 
     <center>
+        <VBox>
         <HBox alignment="TOP_CENTER">
             <HBox prefHeight="50">
                 <StackPane maxHeight="42" prefWidth="50" styleClass="searchbarIcono1">
@@ -24,9 +25,6 @@
                             <Image url="@../../images/searchBar/buscar.png" />
                         </image>
                     </ImageView>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
                 </StackPane>
                 <TextField fx:id="tfBuscar" onKeyPressed="#onEnterBuscar" prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
 
@@ -44,5 +42,13 @@
                 </HBox.margin>
             </HBox>
         </HBox>
+        <HBox alignment="CENTER">
+            <ImageView  fitHeight="70" fitWidth="1280">
+                <image>
+                    <Image url="@../../images/titulos/nuevasrecetas.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+        </VBox>
     </center>
 </BorderPane>

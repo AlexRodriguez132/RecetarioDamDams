@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane minHeight="720.0" minWidth="600.0" styleClass="login-background" stylesheets="@../../css/login.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="mx.edu.utez.proyectorecetario.controller.LoginController">
+    <VBox alignment="TOP_CENTER" maxHeight="500" maxWidth="600" spacing="20" styleClass="login-card">
+        <HBox alignment="TOP_LEFT">
+            <Button onAction="#onScreenLogin" styleClass="btn-back">
+                <graphic>
+                    <ImageView fitHeight="45" fitWidth="45">
+                        <image>
+                            <Image url="@../../images/backflecha.png" />
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="35" top="30" />
+                </HBox.margin>
+            </Button>
+            <ImageView fitHeight="85" fitWidth="190">
+                <image>
+                    <Image url="@../../images/logorecetario.png" />
+                </image>
+                <HBox.margin>
+                    <Insets left="120" top="30" />
+                </HBox.margin>
+            </ImageView>
+        </HBox>
+
+        <VBox>
+            <VBox alignment="CENTER">
+                <Label text="Hemos enviado un código de verificación a tu correo electrónico. Ingresa los 4 dígitos para continuar con el proceso." styleClass="texto" wrapText="true" maxWidth="420">
+                    <VBox.margin>
+                        <Insets top="20" />
+                    </VBox.margin>
+                </Label>
+            </VBox >
+            <VBox alignment="CENTER">
+            <TextFlow>
+                <Text text="                     Código de verificación" styleClass="text-label"/>
+                <Text text="*" styleClass="asterisco-label"/>
+                <Text text=":" styleClass="text-label"/>
+                <VBox.margin>
+                    <Insets left="45" top="60"/>
+                </VBox.margin>
+            </TextFlow>
+            <HBox spacing="10" alignment="CENTER">
+                <TextField fx:id="txtCodigo1" maxWidth="60" prefHeight="60" styleClass="textfield-code"/>
+                <TextField fx:id="txtCodigo2" maxWidth="60" prefHeight="60" styleClass="textfield-code"/>
+                <TextField fx:id="txtCodigo3" maxWidth="60" prefHeight="60" styleClass="textfield-code"/>
+                <TextField fx:id="txtCodigo4" maxWidth="60" prefHeight="60" styleClass="textfield-code"/>
+                <VBox.margin>
+                    <Insets top="10" />
+                </VBox.margin>
+            </HBox>
+            </VBox>
+            <Button onAction="#onValidarCodigo" prefHeight="28" prefWidth="1000" styleClass="btn-ingresar" text="Ingresar">
+                <VBox.margin>
+                    <Insets left="45" right="45" top="55" bottom="20"/>
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </VBox>
+</StackPane>

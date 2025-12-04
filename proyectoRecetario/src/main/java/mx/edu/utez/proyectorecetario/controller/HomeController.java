@@ -11,18 +11,12 @@ import javafx.scene.layout.HBox;
 
 public class HomeController {
     @FXML private TextField tfBuscar;
-    @FXML private Button btnFiltrar;
 
     @FXML
     private void onEnterBuscar(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             realizarBusqueda();
         }
-    }
-
-    @FXML
-    private void onFiltrar(ActionEvent event) {
-
     }
 
     private void realizarBusqueda() {

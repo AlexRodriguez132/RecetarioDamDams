@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+
+<StackPane
+        fx:id="root"
+        xmlns="http://javafx.com/javafx/17.0.12"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="mx.edu.utez.proyectorecetario.controller.RecetaVistaCardController"
+        prefWidth="300" prefHeight="450"
+        stylesheets="@../../../css/card.css"
+        styleClass="card"
+        onMouseClicked="#onVerReceta">
+
+    <VBox spacing="6" styleClass="card">
+
+        <StackPane fx:id="contenedorImagen"
+                   prefWidth="300"
+                   prefHeight="200"
+                   minWidth="300"
+                   minHeight="200"
+                   maxWidth="300"
+                   maxHeight="200">
+
+            <ImageView fx:id="imgReceta"
+                       fitWidth="300"
+                       fitHeight="200"
+                       pickOnBounds="true"
+                       preserveRatio="false"
+                       smooth="true"/>
+        </StackPane>
+
+        <Label fx:id="lblTitulo" styleClass="titulo-card" wrapText="true" maxHeight="20">
+            <VBox.margin>
+                <Insets left="10" top="5"/>
+            </VBox.margin>
+        </Label>
+
+        <HBox fx:id="boxCategorias" spacing="6" prefWidth="300">
+            <VBox.margin>
+                <Insets left="10"/>
+            </VBox.margin>
+        </HBox>
+
+        <Label fx:id="lblDescripcion" wrapText="true" maxHeight="50"
+               prefHeight="50" alignment="TOP_LEFT"
+               styleClass="texto-descripcion">
+            <VBox.margin>
+                <Insets left="10" top="5"/>
+            </VBox.margin>
+        </Label>
+
+        <HBox spacing="10">
+            <ImageView fitWidth="20" fitHeight="20">
+                <image>
+                    <Image url="@../../../images/recetas/reloj.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets left="8"/>
+                </HBox.margin>
+            </ImageView>
+
+            <Label fx:id="lblDuracion" styleClass="texto-filtros"/>
+
+            <ImageView fitWidth="20" fitHeight="20">
+                <image>
+                    <Image url="@../../../images/recetas/grafica.png"/>
+                </image>
+                <HBox.margin>
+                    <Insets left="10"/>
+                </HBox.margin>
+            </ImageView>
+
+            <Label fx:id="lblDificultad" styleClass="texto-filtros"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+
+            <VBox.margin>
+                <Insets left="35"/>
+            </VBox.margin>
+        </HBox>
+
+        <HBox prefHeight="40">
+
+            <Label fx:id="lblUsuario" styleClass="texto-descripcion">
+                <HBox.margin>
+                    <Insets left="20" top="30"/>
+                </HBox.margin>
+            </Label>
+
+            <Button styleClass="btn-exportar" graphicTextGap="10" onAction="#onExportar">
+                <graphic>
+                    <ImageView fitWidth="25" fitHeight="25">
+                        <image>
+                            <Image url="@../../../images/recetas/exportar.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+                <HBox.margin>
+                    <Insets left="100" top="20"/>
+                </HBox.margin>
+            </Button>
+
+            <FlowPane
+                    fx:id="flowFavorito"
+                    alignment="CENTER"
+                    prefWidth="40"
+                    styleClass="flowpane-favorito"
+                    onMouseClicked="#toggleFavorito">
+
+                <ImageView fx:id="imgFavorito" fitWidth="25" fitHeight="25"/>
+
+                <HBox.margin>
+                    <Insets left="10" top="19"/>
+                </HBox.margin>
+            </FlowPane>
+
+            <Pane HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+    </VBox>
+</StackPane>
