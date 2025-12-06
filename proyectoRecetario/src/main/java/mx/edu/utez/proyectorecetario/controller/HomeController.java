@@ -147,12 +147,12 @@ public class HomeController {
         for (Receta r : recetasFiltradas) {
             try {
                 FXMLLoader loader = new FXMLLoader(
-                        getClass().getResource("/mx/edu/utez/proyectorecetario/view/App/Cards/recetacard.fxml")
+                        getClass().getResource("/mx/edu/utez/proyectorecetario/view/App/Cards/recetavistacard.fxml")
                 );
                 Parent card = loader.load();
-                RecetaCardController controller = loader.getController();
+                RecetaVistaCardController controller = loader.getController();
                 controller.setContenedorPadre(cardsContainer);
-                controller.setReceta(r, r.getId_por_categoria());
+                controller.setReceta(r);
                 cardsContainer.getChildren().add(card);
             } catch (IOException e) {
                 e.printStackTrace();

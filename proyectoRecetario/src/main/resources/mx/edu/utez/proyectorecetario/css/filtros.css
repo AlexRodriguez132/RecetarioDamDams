@@ -18,10 +18,11 @@
     -fx-border-color: #333;
     -fx-border-radius: 15;
     -fx-background-color: transparent;
+    -fx-background-radius: 15;
+    -fx-cursor: hand;
 }
 .filtro-tiempo:selected {
-    -fx-background-color: #fff;
-    -fx-text-fill: #333;
+    -fx-background-color: #fff4c3;
 }
 .btn-limpiar{
     -fx-background-color: #DE3C3C;
@@ -31,6 +32,7 @@
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
     -fx-font-size: 20px;
+    -fx-cursor: hand;
 }
 
 .btn-limpiar:hover{
@@ -49,6 +51,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-desayuno:selected {
     -fx-background-color: #FF9500;
@@ -63,6 +66,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-comida:selected {
     -fx-background-color: #FF5E00;
@@ -77,6 +81,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-cena:selected {
     -fx-background-color: #C00000;
@@ -91,6 +96,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-postre:selected {
     -fx-background-color: #b11d8f;
@@ -105,6 +111,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-bebida:selected {
     -fx-background-color: #2346bc;
@@ -119,6 +126,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-vegetariano:selected {
     -fx-background-color: #43ba19;
@@ -133,6 +141,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-saludable:selected {
     -fx-background-color: #0dbf8a;
@@ -147,6 +156,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-internacional:selected {
     -fx-background-color: #8a8a8a;
@@ -161,6 +171,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-carne:selected{
     -fx-background-color: #591f18;
@@ -175,6 +186,7 @@
     -fx-font-family: Inter;
     -fx-background-radius: 50px;
     -fx-border-radius: 50px;
+    -fx-cursor: hand;
 }
 .categoria-pescado:selected{
     -fx-background-color: #006e75;

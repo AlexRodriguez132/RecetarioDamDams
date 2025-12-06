@@ -4,6 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
 <VBox prefHeight="400.0" prefWidth="600.0" styleClass="filtros-root" stylesheets="@../../../css/filtros.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.FiltrosController">
         <Label styleClass="filtro-label" text="CATEGORIAS" />
         <FlowPane fx:id="categoriesContainer" hgap="5" vgap="5">
@@ -66,7 +67,10 @@
                 </graphic>
             </ToggleButton>
         </FlowPane>
-        <HBox>
+        <HBox alignment="CENTER_RIGHT">
+            <HBox.margin>
+                <Insets top="30"/>
+            </HBox.margin>
             <Button onAction="#onLimpiarFiltros" styleClass="btn-limpiar" text="Limpiar" />
         </HBox>
 </VBox>

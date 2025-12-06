@@ -44,6 +44,10 @@ public class RecetaVistaCardController {
 
     private Receta receta;
     private boolean esFavorito = false;
+    private FlowPane contenedorPadre;
+    public void setContenedorPadre(FlowPane contenedorPadre) {
+        this.contenedorPadre = contenedorPadre;
+    }
 
     private static final String RUTA_IMAGENES =
             System.getProperty("user.home") + "/Recetario/imagenes/";
