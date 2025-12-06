@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" styleClass="filtros-root" stylesheets="@../../../css/filtros.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.proyectorecetario.controller.FiltrosController">
+        <Label styleClass="filtro-label" text="CATEGORIAS" />
+        <FlowPane fx:id="categoriesContainer" hgap="5" vgap="5">
+            <ToggleButton fx:id="btnDesayuno" styleClass="categoria-desayuno" text="Desayuno" />
+            <ToggleButton fx:id="btnComida" styleClass="categoria-comida" text="Comida" />
+            <ToggleButton fx:id="btnCena" styleClass="categoria-cena" text="Cena" />
+            <ToggleButton fx:id="btnPostre" styleClass="categoria-postre" text="Postre" />
+            <ToggleButton fx:id="btnBebida" styleClass="categoria-bebida" text="Bebidas" />
+            <ToggleButton fx:id="btnVegetariano" styleClass="categoria-vegetariano" text="Vegetariano" />
+            <ToggleButton fx:id="btnSaludable" styleClass="categoria-saludable" text="Saludables" />
+            <ToggleButton fx:id="btnInternacional" styleClass="categoria-internacional" text="Internacional" />
+            <ToggleButton fx:id="btnCarne" styleClass="categoria-carne" text="Carnes" />
+            <ToggleButton fx:id="btnPescado" styleClass="categoria-pescado" text="Pescado" />
+        </FlowPane>
+
+        <Label styleClass="filtro-label" text="TIEMPO DE PREPARACIÓN" />
+        <FlowPane fx:id="tiemposContainer" hgap="10" vgap="10">
+            <ToggleButton styleClass="filtro-tiempo" text="&lt; 15 min">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/reloj.png" />
+                            </image>
+                        </ImageView>
+                    </HBox>
+                </graphic>
+            </ToggleButton>
+            <ToggleButton styleClass="filtro-tiempo" text="15 - 30 min">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/reloj.png" />
+                            </image>
+                        </ImageView>
+                    </HBox>
+                </graphic>
+            </ToggleButton>
+            <ToggleButton styleClass="filtro-tiempo" text="30 - 60 min">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/reloj.png" />
+                            </image>
+                        </ImageView>
+                    </HBox>
+                </graphic>
+            </ToggleButton>
+            <ToggleButton styleClass="filtro-tiempo" text="&gt; 60 min">
+                <graphic>
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../images/recetas/reloj.png" />
+                            </image>
+                        </ImageView>
+                    </HBox>
+                </graphic>
+            </ToggleButton>
+        </FlowPane>
+        <HBox>
+            <Button onAction="#onLimpiarFiltros" styleClass="btn-limpiar" text="Limpiar" />
+        </HBox>
+</VBox>

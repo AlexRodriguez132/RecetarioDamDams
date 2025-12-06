@@ -1,5 +1,7 @@
 package mx.edu.utez.proyectorecetario.model;
 
+import java.util.List;
+
 public class Receta {
 
     private int id_receta;
@@ -11,7 +13,7 @@ public class Receta {
     private String ingredientes;
     private String pasos;
     private int id_usuario;
-    private int id_categoria;
+    private List<Integer> id_por_categoria;
 
     public int getId_receta() { return id_receta; }
     public void setId_receta(int id_receta) { this.id_receta = id_receta; }
@@ -40,6 +42,11 @@ public class Receta {
     public int getId_usuario() { return id_usuario; }
     public void setId_usuario(int id_usuario) { this.id_usuario = id_usuario; }
 
-    public int getId_categoria() { return id_categoria; }
-    public void setId_categoria(int id_categoria) { this.id_categoria = id_categoria; }
+    public List<Integer> getId_por_categoria() {
+        return id_por_categoria;
+    }
+
+    public void setId_por_categoria(List<Integer> id_por_categoria) {
+        this.id_por_categoria = id_por_categoria;
+    }
 }

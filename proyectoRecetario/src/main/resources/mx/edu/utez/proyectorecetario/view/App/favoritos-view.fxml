@@ -26,9 +26,9 @@
                             </image>
                         </ImageView>
                     </StackPane>
-                    <TextField prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
+                    <TextField fx:id="tfBuscar" prefWidth="700" promptText="Buscar receta..." styleClass="searchbar" />
 
-                    <Button  maxHeight="42" styleClass="searchbarIcono2">
+                    <Button onAction="#onFiltroPopUp" maxHeight="42" styleClass="searchbarIcono2">
                         <graphic>
                             <ImageView fitHeight="25" fitWidth="25">
                                 <image>

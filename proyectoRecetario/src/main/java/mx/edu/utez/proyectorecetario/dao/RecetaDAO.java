@@ -132,6 +132,35 @@ public class RecetaDAO {
         }
     }
 
+    public List<Receta> obtenerRecetasDeOtrosUsuarios(int idUsuario) {
+        String sql = "SELECT * FROM recetas WHERE id_usuario != ? ORDER BY fecha_creacion DESC";
+        List<Receta> lista = new ArrayList<>();
+        try (Connection conn = ConexionBD.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Receta r = new Receta();
+                r.setId_receta(rs.getInt("id_receta"));
+                r.setTitulo(rs.getString("titulo"));
+                r.setDescripcion(rs.getString("descripcion"));
+                r.setImagen(rs.getString("imagen"));
+                r.setDificultad(rs.getString("dificultad"));
+                r.setDuracion(rs.getString("duracion"));
+                r.setIngredientes(rs.getString("ingredientes"));
+                r.setPasos(rs.getString("pasos"));
+                r.setId_usuario(rs.getInt("id_usuario"));
+                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
+                lista.add(r);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
     public List<Receta> obtenerRecetasPorUsuario(int idUsuario) {
         String sql = "SELECT * FROM recetas WHERE id_usuario = ? ORDER BY id_receta DESC";
         List<Receta> lista = new ArrayList<>();
@@ -151,6 +180,7 @@ public class RecetaDAO {
                 r.setIngredientes(rs.getString("ingredientes"));
                 r.setPasos(rs.getString("pasos"));
                 r.setId_usuario(rs.getInt("id_usuario"));
+                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
                 lista.add(r);
             }
 
@@ -277,6 +307,7 @@ public class RecetaDAO {
                 r.setIngredientes(rs.getString("ingredientes"));
                 r.setPasos(rs.getString("pasos"));
                 r.setId_usuario(rs.getInt("id_usuario"));
+                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
                 lista.add(r);
             }
 
