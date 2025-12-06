@@ -58,7 +58,7 @@ public class RecetaVistaCardController {
         if (flowFavorito != null) flowFavorito.setCursor(Cursor.HAND);
     }
 
-    public void setReceta(Receta receta) {
+    public void setReceta(Receta receta, List<Integer> idCategorias) {
         this.receta = receta;
 
         lblTitulo.setText(receta.getTitulo());
@@ -66,28 +66,30 @@ public class RecetaVistaCardController {
         lblDuracion.setText(receta.getDuracion());
         lblDificultad.setText(receta.getDificultad());
 
-        try {
+        /*try {
             Usuario autor = new UsuarioDAO().buscarPorId(receta.getId_usuario());
             lblUsuario.setText(
                     autor != null ? autor.getNombre_usuario() : "Desconocido"
             );
         } catch (Exception e) {
             lblUsuario.setText("Desconocido");
-        }
+        }*/
+        lblUsuario.setText(
+                receta.getCreador().getNombre_usuario() != null ? receta.getCreador().getNombre_usuario() : "Desconocido"
+        );
 
-        cargarCategorias();
+        cargarCategorias(idCategorias);
         cargarImagen(receta.getImagen());
-        validarFavorito();
+        esFavorito = receta.isEsFavorito();
+        actualizarIconoFavorito();
+        //validarFavorito();
     }
 
-    private void cargarCategorias() {
+    private void cargarCategorias(List<Integer> ids) {
         try {
             boxCategorias.getChildren().clear();
 
-            List<Integer> ids =
-                    new RecetaDAO().obtenerCategoriasPorReceta(
-                            receta.getId_receta()
-                    );
+
 
             String[] todas = {
                     "desayuno","comida","cena","postre","bebida",

@@ -30,7 +30,7 @@ public class PDFUtil {
                 .setFontSize(18);
         document.add(titulo);
 
-        Usuario autor = new UsuarioDAO().buscarPorId(receta.getId_usuario());
+        Usuario autor = receta.getCreador();
         String nombreAutor = (autor != null) ? autor.getNombre_usuario() : "Desconocido";
         Paragraph pAutor = new Paragraph("Autor: " + nombreAutor)
                 .setTextAlignment(TextAlignment.LEFT)

@@ -1,6 +1,7 @@
 package mx.edu.utez.proyectorecetario.dao;
 
 import mx.edu.utez.proyectorecetario.model.Receta;
+import mx.edu.utez.proyectorecetario.model.Usuario;
 import mx.edu.utez.proyectorecetario.util.ConexionBD;
 
 import java.sql.*;
@@ -133,12 +134,28 @@ public class RecetaDAO {
     }
 
     public List<Receta> obtenerRecetasDeOtrosUsuarios(int idUsuario) {
-        String sql = "SELECT * FROM recetas WHERE id_usuario != ? ORDER BY fecha_creacion DESC";
+        String sql = "SELECT r.id_receta,  r.titulo, r.descripcion, r.imagen, r.duracion, r.dificultad, r.ingredientes, r.pasos,\n" +
+                "u.nombre_usuario AS creador, GROUP_CONCAT(rc.id_categoria SEPARATOR ', ') AS id_categorias,\n" +
+                "f.fecha_favorito\n" +
+                "FROM recetas r \n" +
+                "JOIN recetas_categorias rc\n" +
+                "\tON r.id_receta = rc.id_receta\n" +
+                "JOIN usuarios u \n" +
+                "\tON r.id_usuario = u.id_usuario\n" +
+                "LEFT JOIN favoritos f\n" +
+                "\tON r.id_receta = f.id_receta AND f.id_usuario = ?\n" +
+                "WHERE r.id_usuario != ? \n" +
+                "GROUP BY \n" +
+                "\tr.id_receta, u.nombre_usuario, f.fecha_favorito \n" +
+                "ORDER BY \n" +
+                "\tr.id_receta DESC";
         List<Receta> lista = new ArrayList<>();
         try (Connection conn = ConexionBD.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
+            ps.setInt(2, idUsuario);
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Receta r = new Receta();
@@ -150,8 +167,19 @@ public class RecetaDAO {
                 r.setDuracion(rs.getString("duracion"));
                 r.setIngredientes(rs.getString("ingredientes"));
                 r.setPasos(rs.getString("pasos"));
-                r.setId_usuario(rs.getInt("id_usuario"));
-                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
+
+                Usuario creador = new Usuario();
+                creador.setNombre_usuario(rs.getString("creador"));
+                r.setCreador(creador);
+
+                String id_categorias = rs.getString("id_categorias");
+                String[] id_categorias_array = id_categorias.split(", ");
+                List<Integer> idCategorias = new ArrayList<>();
+                for(String id_categoria : id_categorias_array) {
+                    idCategorias.add(Integer.parseInt(id_categoria));
+                }
+                r.setId_por_categoria(idCategorias);
+                r.setEsFavorito(rs.getString("fecha_favorito") != null);
                 lista.add(r);
             }
 
@@ -162,12 +190,28 @@ public class RecetaDAO {
     }
 
     public List<Receta> obtenerRecetasPorUsuario(int idUsuario) {
-        String sql = "SELECT * FROM recetas WHERE id_usuario = ? ORDER BY id_receta DESC";
+        String sql = "SELECT r.id_receta,  r.titulo, r.descripcion, r.imagen, r.duracion, r.dificultad, r.ingredientes, r.pasos,\n" +
+                "u.nombre_usuario AS creador, GROUP_CONCAT(rc.id_categoria SEPARATOR ', ') AS id_categorias,\n" +
+                "f.fecha_favorito\n" +
+                "FROM recetas r \n" +
+                "JOIN recetas_categorias rc\n" +
+                "\tON r.id_receta = rc.id_receta\n" +
+                "JOIN usuarios u \n" +
+                "\tON r.id_usuario = u.id_usuario\n" +
+                "LEFT JOIN favoritos f\n" +
+                "\tON r.id_receta = f.id_receta AND f.id_usuario = ?\n" +
+                "WHERE r.id_usuario = ? \n" +
+                "GROUP BY \n" +
+                "\tr.id_receta, u.nombre_usuario, f.fecha_favorito \n" +
+                "ORDER BY \n" +
+                "\tr.id_receta DESC;";
         List<Receta> lista = new ArrayList<>();
         try (Connection conn = ConexionBD.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
+            ps.setInt(2, idUsuario);
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Receta r = new Receta();
@@ -179,8 +223,19 @@ public class RecetaDAO {
                 r.setDuracion(rs.getString("duracion"));
                 r.setIngredientes(rs.getString("ingredientes"));
                 r.setPasos(rs.getString("pasos"));
-                r.setId_usuario(rs.getInt("id_usuario"));
-                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
+
+                Usuario creador = new Usuario();
+                creador.setNombre_usuario(rs.getString("creador"));
+                r.setCreador(creador);
+
+                String id_categorias = rs.getString("id_categorias");
+                String[] id_categorias_array = id_categorias.split(", ");
+                List<Integer> idCategorias = new ArrayList<>();
+                for(String id_categoria : id_categorias_array) {
+                    idCategorias.add(Integer.parseInt(id_categoria));
+                }
+                r.setId_por_categoria(idCategorias);
+                r.setEsFavorito(rs.getString("fecha_favorito") != null);
                 lista.add(r);
             }
 
@@ -287,7 +342,20 @@ public class RecetaDAO {
     }
 
     public List<Receta> obtenerFavoritosPorUsuario(int idUsuario) {
-        String sql = "SELECT r.* FROM recetas r JOIN favoritos f ON r.id_receta = f.id_receta WHERE f.id_usuario = ? ORDER BY f.fecha_favorito DESC";
+        String sql = "SELECT r.id_receta,  r.titulo, r.descripcion, r.imagen, r.duracion, r.dificultad, r.fecha_creacion, r.ingredientes, r.pasos,\n" +
+                "u.nombre_usuario AS creador, GROUP_CONCAT(rc.id_categoria SEPARATOR ', ') AS id_categorias,\n" +
+                "f.fecha_favorito\n" +
+                "FROM recetas r\n" +
+                "JOIN recetas_categorias rc\n" +
+                "ON r.id_receta = rc.id_receta\n" +
+                "JOIN usuarios u\n" +
+                "ON r.id_usuario = u.id_usuario\n" +
+                "JOIN favoritos f\n" +
+                "ON r.id_receta = f.id_receta AND f.id_usuario = ?\n" +
+                "GROUP BY\n" +
+                "r.id_receta, u.nombre_usuario, f.fecha_favorito\n" +
+                "ORDER BY\n" +
+                "r.id_receta DESC, f.fecha_favorito DESC";
         List<Receta> lista = new ArrayList<>();
 
         try (Connection conn = ConexionBD.getConnection();
@@ -306,8 +374,19 @@ public class RecetaDAO {
                 r.setDuracion(rs.getString("duracion"));
                 r.setIngredientes(rs.getString("ingredientes"));
                 r.setPasos(rs.getString("pasos"));
-                r.setId_usuario(rs.getInt("id_usuario"));
-                r.setId_por_categoria(obtenerCategoriasPorReceta(rs.getInt("id_receta")));
+
+                Usuario creador = new Usuario();
+                creador.setNombre_usuario(rs.getString("creador"));
+                r.setCreador(creador);
+
+                String id_categorias = rs.getString("id_categorias");
+                String[] id_categorias_array = id_categorias.split(", ");
+                List<Integer> idCategorias = new ArrayList<>();
+                for(String id_categoria : id_categorias_array) {
+                    idCategorias.add(Integer.parseInt(id_categoria));
+                }
+                r.setId_por_categoria(idCategorias);
+                r.setEsFavorito(rs.getString("fecha_favorito") != null);
                 lista.add(r);
             }
 

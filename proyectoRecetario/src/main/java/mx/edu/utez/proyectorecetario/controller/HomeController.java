@@ -87,10 +87,11 @@ public class HomeController {
             if(opcionesFiltro.getCategoria() != 0) {
                 for(Integer id :  receta.getId_por_categoria()) {
                     System.out.println("Platillo: "+receta.getTitulo()+"\nId categoria: "+id);
-                    if(!id.equals(opcionesFiltro.getCategoria())) {
-                        return false;
+                    if(id.equals(opcionesFiltro.getCategoria())) {
+                        return true;
                     }
                 }
+                return false;
             }
 
             if(opcionesFiltro.getTiempo() != null && !opcionesFiltro.getTiempo().equalsIgnoreCase("cualquiera")) {
@@ -152,7 +153,7 @@ public class HomeController {
                 Parent card = loader.load();
                 RecetaVistaCardController controller = loader.getController();
                 controller.setContenedorPadre(cardsContainer);
-                controller.setReceta(r);
+                controller.setReceta(r, r.getId_por_categoria());
                 cardsContainer.getChildren().add(card);
             } catch (IOException e) {
                 e.printStackTrace();

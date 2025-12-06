@@ -1,6 +1,7 @@
 package mx.edu.utez.proyectorecetario.controller;
 
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,12 +68,16 @@ public class RecetaCardController {
         lblDificultad.setText(receta.getDificultad() == null ? "" : receta.getDificultad());
         lblDuracion.setText(receta.getDuracion() == null ? "" : receta.getDuracion());
 
-        Usuario autor = new UsuarioDAO().buscarPorId(receta.getId_usuario());
+        //Usuario autor = new UsuarioDAO().buscarPorId(receta.getId_usuario());
+        Usuario autor = Sesion.getUsuarioActual();
+
         lblUsuario.setText(autor != null ? autor.getNombre_usuario() : "Desconocido");
 
         cargarCategorias(idsCategorias);
         cargarImagen(receta.getImagen());
-        cargarEstadoFavorito();
+        //cargarEstadoFavorito();
+        esFavorito = receta.isEsFavorito();
+        actualizarIconoFavorito();
 
         tarjetas.add(this);
 

@@ -161,7 +161,7 @@ public class FavoritosController {
                 StackPane card = loader.load();
 
                 RecetaVistaCardController controller = loader.getController();
-                controller.setReceta(receta);
+                controller.setReceta(receta, receta.getId_por_categoria());
 
                 cardsContainer.getChildren().add(card);
 

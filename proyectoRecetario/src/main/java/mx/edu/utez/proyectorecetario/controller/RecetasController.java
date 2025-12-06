@@ -101,9 +101,10 @@ public class RecetasController {
             if(opcionesFiltro.getCategoria() != 0) {
                 for(Integer id :  receta.getId_por_categoria()) {
                     System.out.println("Platillo: "+receta.getTitulo()+"\nId categoria: "+id);
-                    if(!id.equals(opcionesFiltro.getCategoria())) {
-                        return false;
+                    if(id.equals(opcionesFiltro.getCategoria())) {
+                        return true;
                     }
+                    return false;
                 }
             }
 
